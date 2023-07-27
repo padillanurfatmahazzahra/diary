@@ -30,8 +30,8 @@ def save_diary():
     title_receive = request.form["title_give"]
     content_receive = request.form["content_give"]
     
-    today = datetime.now()
-    mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
+    date_time = now.strftime("%Y-%m-%d-%H-%M-%S")
+    print(date_time)
     
     file = request.files["file_give"]
     extension = file.filename.split(".")[-1]
