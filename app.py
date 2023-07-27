@@ -1,10 +1,10 @@
 import os 
 from os.path import join, dirname
 from dotenv import load_dotenv
-from datetime import datetime
 
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
+from datetime import datetime
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -31,8 +31,8 @@ def save_diary():
     title_receive = request.form["title_give"]
     content_receive = request.form["content_give"]
     
-    date_time = now.strftime("%Y-%m-%d-%H-%M-%S")
-    print(date_time)
+    today = datetime.now()
+    mytime = today.strftime("%Y-%m-%d-%H-%M-%S")
     
     file = request.files["file_give"]
     extension = file.filename.split(".")[-1]
